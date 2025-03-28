@@ -10,9 +10,7 @@ class Solution:
                 maxi=num[:r+1]#since the slicing of large string to integer wa sgiving truble directly remoc=ving it worked instead store maxi as a string rather than integer
                 
             r+=1
-        if(maxi==0):
-            return ""
-        return str(maxi)
+        return maxi
             
 
 
