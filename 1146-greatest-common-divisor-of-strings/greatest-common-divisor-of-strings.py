@@ -1,10 +1,10 @@
 class Solution:
     def gcdOfStrings(self, str1: str, str2: str) -> str:
-        l=0
-        r=1
+        l,r=0,1
         
-        nw1=len(str1)
-        nw2=len(str2)
+        
+        nw1,nw2=len(str1),len(str2)
+        
         maxi=""
         x=min(nw1,nw2)
         while(r<=x):
