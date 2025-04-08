@@ -7,11 +7,10 @@ class Solution:
                 maps[i]+=1
             else:
                 maps[i]=1
-        maxkey=0
-        maxvalue=0
-        for key,value in maps.items():
-            if(value>maxvalue):
-                maxvalue=value
-                maxkey=key
+        #maxkey=0
+        #maxvalue=0
+        maxkey = max(maps, key=maps.get) #looping through keys getting their vaue storing what is maximum
+
+        
         return maxkey
         
