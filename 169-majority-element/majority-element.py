@@ -7,11 +7,11 @@ class Solution:
                 maps[i]+=1
             else:
                 maps[i]=1
-        maxi=0
-        
+        maxkey=0
+        maxvalue=0
         for key,value in maps.items():
-            maxi=max(maxi,value) 
-        for key,value in maps.items():
-            if(maxi==value):
-                return key 
+            if(value>maxvalue):
+                maxvalue=value
+                maxkey=key
+        return maxkey
         
