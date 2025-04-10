@@ -5,7 +5,7 @@ class Solution:
         """
         m=len(matrix)
         for i in range(m):
-            for j in range(i+1,m):
+            for j in range(i+1,m):#upper triangle
                 if(i!=j):
                     temp=matrix[i][j]
                     matrix[i][j]=matrix[j][i]
