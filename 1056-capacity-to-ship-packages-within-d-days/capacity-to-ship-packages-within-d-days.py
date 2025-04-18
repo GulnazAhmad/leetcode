@@ -1,14 +1,12 @@
 class Solution:
     def shipWithinDays(self, weights: List[int], days: int) -> int:
         def valid(weights,capacity,days):
-            #maxi=0
             sum=0
             tday=1
             for i in weights:
                 if(sum+i<=capacity):
                     sum=sum+i
                 else:
-                    #maxi=max(maxi,sum)
                     sum=i
                     tday+=1
             print("day",tday+1)
