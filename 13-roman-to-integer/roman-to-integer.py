@@ -1,7 +1,6 @@
 class Solution:
     def romanToInt(self, s: str) -> int:
         r=s[::-1]
-        print(r)
         roman={
             'I':1,
             'V':5,
