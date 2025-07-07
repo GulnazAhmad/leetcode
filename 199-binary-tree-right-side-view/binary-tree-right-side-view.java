@@ -1,58 +1,24 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
 class Solution {
     public List<Integer> rightSideView(TreeNode root) {
-        List<List<Integer>> res = new ArrayList<>();
-        if (root == null) return new ArrayList<>();
-        Queue<TreeNode> q=new LinkedList<>();
-        q.add(root);
-        q.add(null);//q=1 null
-        List<Integer> list = new ArrayList<>();
-        while(!q.isEmpty())
-        {
-            TreeNode currNode=q.remove(); //1 q=null
-            if(currNode==null){
-                res.add(new ArrayList<>(list)); //add current level
-                list.clear();//clear for next level
-                if(q.isEmpty()){
-                    break;
-                }
-                else{
-                    q.add(null); //q=2,3,null
-                }
-            }
-            else{
-                list.add(currNode.val);//"1 "
-                if(currNode.left!=null){
-                    q.add(currNode.left); //q=null ,2
-                }
-                if(currNode.right!=null){
-                    q.add(currNode.right); //q=null,2,3
-                }
-            }
+        List<Integer> right = new ArrayList<>();
+        if (root == null) return right;
 
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+
+        while (!q.isEmpty()) {
+            int size = q.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode curr = q.poll();
+                if (i == size - 1) {
+                    // Add the last node of this level (rightmost)
+                    right.add(curr.val);
+                }
+                if (curr.left != null) q.add(curr.left);
+                if (curr.right != null) q.add(curr.right);
+            }
         }
-    List<Integer> right = new ArrayList<>();
-    for (int i=0;i<res.size();i++){
-        List<Integer> innerList = res.get(i);
-        right.add(innerList.get(innerList.size()-1));
-      
-    } 
-    
-      return right;  
-        
+
+        return right;
     }
 }
