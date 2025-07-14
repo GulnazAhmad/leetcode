@@ -1,23 +1,15 @@
 class Solution {
     public boolean judgeSquareSum(int c) {
-        for (long a = 0; a * a <= c; a++) {
-            long bSquared = c - a * a;
-            if (binarySearch(0, bSquared, bSquared)) {
-                return true;
-            }
+        long a = 0;
+        long b = (long) Math.sqrt(c);
+        
+        while (a <= b) {
+            long sum = a * a + b * b;
+            if (sum == c) return true;
+            else if (sum < c) a++;
+            else b--;
         }
-        return false;
-    }
-
-    private boolean binarySearch(long low, long high, long target) {
-        while (low <= high) {
-            long mid = low + (high - low) / 2;
-            long midSq = mid * mid;
-
-            if (midSq == target) return true;
-            else if (midSq < target) low = mid + 1;
-            else high = mid - 1;
-        }
+        
         return false;
     }
 }
