@@ -8,8 +8,10 @@ class Solution {
             if(i>maxindex){
                 return false;
             }
-                        maxindex=Math.max(maxindex,x);
-
+            maxindex=Math.max(maxindex,x);
+            if(maxindex>=l-1){
+                return true;
+            }
 
         }
         return true;
