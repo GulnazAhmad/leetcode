@@ -8,11 +8,15 @@ class Solution {
     if (ratings[i] > ratings[i - 1]) {
         candy[i] = candy[i - 1] + 1;
     }
-}for (int i = ratings.length - 2; i >= 0; i--) {
+
+}            System.out.println(Arrays.toString(candy));
+
+for (int i = ratings.length - 2; i >= 0; i--) {
     if (ratings[i] > ratings[i + 1]) {
         candy[i] = Math.max(candy[i], candy[i + 1] + 1);
     }
-}
+}        System.out.println(Arrays.toString(candy));
+
 
 
         System.out.println(Arrays.toString(candy));
