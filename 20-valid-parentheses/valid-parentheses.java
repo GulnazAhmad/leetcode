@@ -1,31 +1,38 @@
-import java.util.Stack;
-
 class Solution {
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
-        
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);  // Get each character
-            
-            // If opening bracket, push to stack
-            if (c == '(' || c == '{' || c == '[') {
-                stack.push(c);
-            } else {
-                // If closing bracket and stack is empty, it's invalid
-                if (stack.isEmpty()) return false;
+        boolean ans=false;
+        for (int i=0;i<s.length();i++){
+            if(s.charAt(i)=='(' || s.charAt(i)=='{' || s.charAt(i)=='['){
+                stack.push(s.charAt(i));
+            }
+            else{
+                if(!stack.isEmpty()){
+                char c=stack.pop();
                 
-                char top = stack.pop();  // Top of stack
-
-                // Check if the closing bracket matches
-                if ((c == ')' && top != '(') ||
-                    (c == '}' && top != '{') ||
-                    (c == ']' && top != '[')) {
-                    return false;
+                if(c=='(' && s.charAt(i)==')'){
+                    ans=true;
+                    continue;
                 }
+                if(c=='[' && s.charAt(i)==']'){
+                    ans=true;
+                    continue;
+
+                }
+                if(c=='{' && s.charAt(i)=='}'){
+                    ans=true;
+                    continue;
+                }
+                }
+            ans=false;
+            return ans;
+                
             }
         }
-        
-        // Stack should be empty if all brackets matched
-        return stack.isEmpty();
+        if(!stack.isEmpty()){
+            return false;
+        }
+        return ans;
+
     }
 }
