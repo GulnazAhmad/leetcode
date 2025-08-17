@@ -1,19 +1,13 @@
 class Solution {
     public int hammingWeight(int n) {
-        //get bit logic
-    
-String binary = Integer.toBinaryString(n);
-int l=binary.length();
-int count=0;  // Output: "10000"
-        for(int i=0;i<l;i++){
-            int maskbit=1<<i;
-            //boolean x=maskbit&n;
-            if((maskbit&n)>0){
-                count=count+1;
-
+        int count=0;
+        while(n>0){
+            int rem=n%2;
+            if(rem==1){
+                count+=1;
             }
+            n=n/2;
         }
-            return count;
-        
+      return count;  
     }
 }
