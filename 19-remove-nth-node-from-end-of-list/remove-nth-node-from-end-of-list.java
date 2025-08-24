@@ -13,19 +13,14 @@ class Solution {
         ListNode prev=null;
         ListNode curr=head;
         int length=0;
-        
         while(curr!=null){
             length=length+1;
             curr=curr.next;
-
         }
         if(length==1) return null;
         int pos=length-n+1;
-       
-        System.out.println(length);
-        System.out.println(pos);
         curr=head;
-        //if pos==1 i.e first element from the linked list remove from head 
+        //remove from head 
         if(pos==1){
             curr=curr.next;
             head.next=null;
@@ -38,12 +33,10 @@ class Solution {
             while(curr.next!=null){
                 prev=curr;
                 curr=curr.next; 
-
             }
             prev.next=null;
             return head;
         }
-
         curr=head;
         //remove from between
         int countpos=1;
