@@ -17,13 +17,9 @@ class Solution {
             list.add(trial.val);
             trial=trial.next;
         }
-        for (int i = 0; i < list.size(); i++) {
-        System.out.println(list.get(i));
-        }
         int p=0;
         int x=0;
         int y=list.size()-1;
-        System.out.println(y);
         while(curr!=null){
             if(p%2==0){
                 curr.val=list.get(x);
@@ -39,6 +35,5 @@ class Solution {
                 curr=curr.next;
             }    
         }
-
     }
 }
